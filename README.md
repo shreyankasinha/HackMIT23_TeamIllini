@@ -2,9 +2,6 @@
 
 - Team Members: Rohin, Shreyanka, Arpit, Neil
 
-# HackMIT23_TeamIllini
-
-- Team Members: Rohin, Shreyanka, Arpit, Neil
 ![1](https://github.com/shreyankasinha/HackMIT23_TeamIllini/assets/112669871/25abd3db-ce2d-4c4a-9a9f-180de9ec67c5)
 
 ## Inspiration
