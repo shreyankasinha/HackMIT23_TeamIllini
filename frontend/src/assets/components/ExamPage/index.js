@@ -1,64 +1,86 @@
 import React, { useState, useEffect } from 'react';
-import Timer from '../Timer';
 
-function ExamPage({ questions }) {
+function ExamPage() {
+  const [questions, setQuestions] = useState([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [score, setScore] = useState(0);
-  const [selectedAnswer, setSelectedAnswer] = useState(null);
+  const [answers, setAnswers] = useState([]);
+
+  useEffect(() => {
+    fetch('http://localhost:5005/questions')
+      .then(response => response.json())
+      .then(data => setQuestions(data))
+      .catch(error => console.error('Error fetching questions:', error));
+  }, []);
+
+  if (questions.length === 0) {
+    return <p>Loading questions...</p>;
+  }
 
   const currentQuestion = questions[currentQuestionIndex];
+
+  const handleOptionChange = (e) => {
+    const newAnswers = [...answers];
+    newAnswers[currentQuestionIndex] = e.target.value;
+    setAnswers(newAnswers);
+  };
 
   const handleNext = () => {
     if (currentQuestionIndex < questions.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
-      setSelectedAnswer(null);
     }
   };
 
-  const handlePrevious = () => {
+  const handlePrev = () => {
     if (currentQuestionIndex > 0) {
       setCurrentQuestionIndex(currentQuestionIndex - 1);
-      setSelectedAnswer(null);
     }
   };
-
-  const handleAnswerSelect = (option) => {
-    setSelectedAnswer(option);
-    if (option === currentQuestion.Correct) {
-      setScore(score + 1);
-    }
-  };
-
-  useEffect(() => {
-    setScore(0);
-  }, [questions]);
 
   return (
     <div>
-      <Timer startTime={Date.now()} />
-      {currentQuestion && (
-        <div>
-          <h2>{currentQuestion.Question}</h2>
-          <div>
-            {['A', 'B', 'C', 'D'].map((option) => (
-              <div key={option}>
-                <label>
-                  <input 
-                    type="radio" 
-                    name="answer" 
-                    value={option}
-                    checked={selectedAnswer === option}
-                    onChange={() => handleAnswerSelect(option)}
-                  />
-                  {currentQuestion[`Opt_${option}`]}
-                </label>
-              </div>
-            ))}
-          </div>
-          <button onClick={handlePrevious} disabled={currentQuestionIndex === 0}>Previous</button>
-          <button onClick={handleNext} disabled={currentQuestionIndex === questions.length - 1}>Next</button>
-        </div>
-      )}
+      <p>{currentQuestion.Question}</p>
+      <div>
+        <label>
+          <input 
+            type="radio" 
+            value="A" 
+            checked={answers[currentQuestionIndex] === 'A'}
+            onChange={handleOptionChange} 
+          />
+          {currentQuestion.Opt_A}
+        </label>
+        <label>
+          <input 
+            type="radio" 
+            value="B" 
+            checked={answers[currentQuestionIndex] === 'B'}
+            onChange={handleOptionChange} 
+          />
+          {currentQuestion.Opt_B}
+        </label>
+        <label>
+          <input 
+            type="radio" 
+            value="C" 
+            checked={answers[currentQuestionIndex] === 'C'}
+            onChange={handleOptionChange} 
+          />
+          {currentQuestion.Opt_C}
+        </label>
+        <label>
+          <input 
+            type="radio" 
+            value="D" 
+            checked={answers[currentQuestionIndex] === 'D'}
+            onChange={handleOptionChange} 
+          />
+          {currentQuestion.Opt_D}
+        </label>
+      </div>
+      <div>
+        <button onClick={handlePrev}>Previous</button>
+        <button onClick={handleNext}>Next</button>
+      </div>
     </div>
   );
 }
