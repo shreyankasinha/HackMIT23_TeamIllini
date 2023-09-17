@@ -52,4 +52,14 @@ router.delete('/questions/:id', async (req, res) => {
     }
 });
 
+app.get('/questions', async (req, res) => {
+    try {
+      const questions = await getQuestions(); // getQuestions is a function that fetches questions from your database
+      res.json(questions);
+    } catch (error) {
+      res.status(500).json({ error: 'An error occurred while fetching questions' });
+    }
+  });  
+
+
 module.exports = router;

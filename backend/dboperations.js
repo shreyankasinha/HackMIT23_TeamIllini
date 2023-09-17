@@ -8,6 +8,7 @@ async function connectDB() {
         const client = new MongoClient(uri);
         await client.connect();
         db = client.db("mydatabase");
+        console.log("Database connected successfully");
     } catch (error) {
         console.error("Could not connect to database", error);
     }
@@ -50,14 +51,9 @@ async function getQuestion(questionId) {
     }
 }
 
-async function getQuestionsByDifficulty(difficultyLevel) {
-    try {
-        const collection = db.collection('questions');
-        const questions = await collection.find({ difficulty_level: difficultyLevel }).toArray();
-        return questions;
-    } catch (error) {
-        console.error("Could not get questions by difficulty", error);
-    }
+function getQuestionsByDifficulty(db, callback) {
+    const collection = db.collection('questions');
+    collection.find({}).toArray(callback);
 }
 
 module.exports = {
