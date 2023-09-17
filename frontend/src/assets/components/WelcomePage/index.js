@@ -5,9 +5,8 @@ function WelcomePage() {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100vh', backgroundColor: '#e0f7fa' }}>
       <div style={{ position: 'absolute', top: '10px', left: '10px' }}>
-        <img src="/illiniblock.jpg" alt="Illinois Logo" style={{ width: '100px', height: '100px' }} />
       </div>
-      <h1 style={{ fontSize: '48px', color: '#00796b', marginBottom: '20px' }}>Welcome to the Mastery-Based Assessment App</h1>
+      <h1 style={{ fontSize: '48px', color: '#00796b', marginBottom: '20px' }}>Welcome to HomeworkWise!</h1>
       <div style={{ marginBottom: '20px', textAlign: 'center', color: '#004d40' }}>
         <label style={{ fontSize: '20px' }}>
           Exam Description: 

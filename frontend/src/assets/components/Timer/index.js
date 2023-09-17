@@ -1,18 +1,24 @@
 import React, { useState, useEffect } from 'react';
 
-function Timer({ startTime }) {
-  const [timeRemaining, setTimeRemaining] = useState(60 * 60 * 1000); // 60 minutes in milliseconds
+function Timer() {
+  const [time, setTime] = useState(60 * 60); // 60 minutes in seconds
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      const elapsedTime = Date.now() - startTime;
-      setTimeRemaining(60 * 60 * 1000 - elapsedTime);
+      setTime(prevTime => prevTime - 1);
     }, 1000);
 
     return () => clearInterval(intervalId);
-  }, [startTime]);
+  }, []);
 
-  return <div>Time Remaining: {Math.floor(timeRemaining / 60000)}:{((timeRemaining % 60000) / 1000).toFixed(0)}</div>;
+  const minutes = Math.floor(time / 60);
+  const seconds = time % 60;
+
+  return (
+    <div>
+      Time Left: {minutes}m {seconds}s
+    </div>
+  );
 }
 
 export default Timer;
