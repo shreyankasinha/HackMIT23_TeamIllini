@@ -5,7 +5,7 @@
 ![1](https://github.com/shreyankasinha/HackMIT23_TeamIllini/assets/112669871/25abd3db-ce2d-4c4a-9a9f-180de9ec67c5)
 
 **Presentation :** [HackMIT23.pdf](https://github.com/shreyankasinha/HackMIT23_TeamIllini/files/12644343/HackMIT23.pdf)
-**Demo :** [Youtube Demo Video]([url](https://youtu.be/kSdbmqJyJG0?si=_FZkbYza1OF-8Jqy))
+**Demo :** ([url](https://youtu.be/kSdbmqJyJG0?si=_FZkbYza1OF-8Jqy))
 
 
 ## Inspiration
