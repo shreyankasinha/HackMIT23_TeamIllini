@@ -4,6 +4,10 @@
 
 ![1](https://github.com/shreyankasinha/HackMIT23_TeamIllini/assets/112669871/25abd3db-ce2d-4c4a-9a9f-180de9ec67c5)
 
+**Presentation :** [HackMIT23.pdf](https://github.com/shreyankasinha/HackMIT23_TeamIllini/files/12644343/HackMIT23.pdf)
+**Demo :** [Youtube Demo Video]([url](https://youtu.be/kSdbmqJyJG0?si=_FZkbYza1OF-8Jqy))
+
+
 ## Inspiration
 
 "HomeworkWise: For Students, By Students" was conceived as a solution to a series of pressing challenges that beleaguered the traditional approach to homework assignments in collegiate settings. The three core challenges were:
